@@ -5,6 +5,7 @@ models:
       - name: customer_id
         description: "Unikalny id klienta"
         tests:
+          - unique
           - not_null
       - name: order_count
         description: "Ilość zamówień danego klienta"
