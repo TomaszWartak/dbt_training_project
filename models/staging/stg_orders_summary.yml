@@ -1,0 +1,12 @@
+models:
+  - name: stg_orders_summary
+    description: "Tabela stagingowa z podsumowaniem zamówień"
+    columns:
+      - name: customer_id
+        description: "Unikalny id klienta"
+        tests:
+          - not_null
+      - name: order_count
+        description: "Ilość zamówień danego klienta"
+      - name: total_revenue
+        description: "Wartość zamówień danego klienta"
