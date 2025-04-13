@@ -1,0 +1,18 @@
+models:
+  - name: stg_customers
+    description: "Widok stagingowy klientów"
+    columns:
+      - name: customer_id
+        description: "Identyfikator klienta"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Nazwa klienta"
+        tests:
+          - not_null
+      - name: country_id
+        description: "Identyfikator kraju siedziby klienta"
+        tests:
+          - not_null
+    
