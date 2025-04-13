@@ -1,0 +1,14 @@
+models:
+  - name: stg_countries
+    description: "Widok stagingowy krajów, w których znajdują się siedziby klientów"
+    columns:
+      - name: country_id
+        description: "Identyfikator kraju, w którym znajduje się siedziba klienta"
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "Nazwa kraju, w którym znajduje się siedziba klienta"
+        tests:
+          - unique
+          - not_null
