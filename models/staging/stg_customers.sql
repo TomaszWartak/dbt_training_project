@@ -2,8 +2,7 @@
 {{ config(materialized='view') }}
 
 SELECT 
-    O_ORDERKEY AS order_id,
-    O_CUSTKEY AS customer_id,
-    O_ORDERDATE AS order_date,
-    O_TOTALPRICE AS order_total
-FROM MY_DWH.STAGING.ORDERS_STG
+    C_CUSTKEY AS customer_id,
+	C_NAME AS customer_name,
+	C_NATIONKEY AS country_id
+FROM MY_DWH.STAGING.CUSTOMER_STG
