@@ -7,4 +7,4 @@ SELECT
     CO.country_name AS customer_country
 FROM {{ ref('stg_customers') }} AS C
 JOIN {{ ref('stg_countries')}} AS CO
-    ON C.country_id = CO.country_id;
+    ON CO.country_id = C.country_id
