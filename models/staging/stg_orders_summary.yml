@@ -2,10 +2,14 @@ models:
   - name: stg_orders_summary
     description: "Tabela stagingowa z podsumowaniem zamówień"
     columns:
-      - name: customer_id
-        description: "Unikalny id klienta"
+      - name: customer_name
+        description: "Nazwa klienta"
         tests:
           - unique
+          - not_null
+      - name: customer_country
+        description: "Nazwa kraju klienta"
+        tests:
           - not_null
       - name: order_count
         description: "Ilość zamówień danego klienta"

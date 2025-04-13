@@ -1,0 +1,10 @@
+models:
+  - name: stg_customers_with_countries
+    description: "Widok stagingowy klientów z nazwami krajów, w których ma siedziby"
+    columns:
+      - name: customer_id
+        description: "Identyfikator klienta"
+      - name: customer_name
+        description: "Nazwa klienta"
+      - name: customer_country
+        description: "Nazwa kraju, w który klient ma siedzibę"
