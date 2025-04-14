@@ -8,8 +8,8 @@ models:
           - unique
           - not_null
           - relationships:
-            to: ref('stg_customers')
-            field: country_id
+              to: ref('stg_customers')
+              field: country_id
       - name: country_name
         description: "Nazwa kraju, w którym znajduje się siedziba klienta"
         tests:
