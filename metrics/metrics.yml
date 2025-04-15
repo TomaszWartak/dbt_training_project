@@ -6,13 +6,13 @@ metrics:
     label: Total Revenue
     model: stg_orders
     calculation_method: sum
-    expression: amount
+    expression: order_total
     timestamp: order_date
     time_grains: [day, month, year]
     dimensions:
-      - country
-      - status
-    filters:
-      - field: status
-        operator: "="
-        value: confirmed
+      - customer_id
+    #  - status
+    #filters:
+    #  - field: status
+    #    operator: "="
+    #    value: confirmed
