@@ -4,7 +4,7 @@ type: metrics
 metrics:
   - name: total_revenue
     label: Total Revenue
-    model: ref('fct_orders')
+    model: stg_orders
     calculation_method: sum
     expression: amount
     timestamp: order_date
