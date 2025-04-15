@@ -22,3 +22,19 @@ models:
         description: "Wartość zamówienia"
         tests:
           - not_null
+metrics:
+  - name: total_revenue
+    type: simple
+    #label: Total Revenue
+    model: stg_orders
+    calculation_method: sum
+    expression: amount
+    timestamp: order_date
+    time_grains: [day, month, year]
+    dimensions:
+      - country
+      - status
+    filters:
+      - field: status
+        operator: "="
+        value: confirmed      
