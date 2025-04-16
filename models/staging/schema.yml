@@ -86,10 +86,11 @@ models:
           - not_null
 
     metrics:
-      - name: test_metric
-        label: Test Metric
+      - name: total_order_value
+        label: Total Order Value
         model: ref('stg_orders')
-        calculation_method: count
-        expression: order_id
+        description: "Suma wartości zamówień"
+        type: sum
+        sql: order_total
         timestamp: order_date
         time_grains: [day, month, year]
