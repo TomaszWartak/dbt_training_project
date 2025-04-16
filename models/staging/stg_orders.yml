@@ -18,7 +18,17 @@ models:
         description: "Data zamówienia"
         tests:
           - not_null
+      - name: order_status
+        description: "Status zamówienia"
+        tests:
+          - not_null
+      - name: order_prioriity
+        description: "Priorytet zamówienia"
+        tests:
+          - not_null
       - name: order_total
         description: "Wartość zamówienia"
         tests:
           - not_null
+
+          
