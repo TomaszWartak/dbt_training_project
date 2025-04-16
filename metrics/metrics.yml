@@ -2,38 +2,46 @@ version: 2
 type: metrics
 
 metrics:
-  - name: total_order_value
-    label: Total Order Value
-    model: stg_orders
-    calculation_method: sum
-    expression: order_total
-    timestamp: order_date
-    time_grains: [day, month, year]
-    dimensions:
-      - order_status
-      - order_prioriity
-
-  - name: order_count
-    label: Number of Orders
+  - name: test_metric
+    label: Test Metric
     model: stg_orders
     calculation_method: count
     expression: order_id
     timestamp: order_date
     time_grains: [day, month, year]
-    dimensions:
-      - order_status
-      - order_prioriity
 
-  - name: confirmed_order_value
-    label: Confirmed Orders Value
-    model: stg_orders
-    calculation_method: sum
-    expression: order_total
-    timestamp: order_date
-    time_grains: [day, month, year]
-    filters:
-      - field: order_status
-        operator: "="
-        value: confirmed
-    dimensions:
-      - order_prioriity
+  # - name: total_order_value
+  #   label: Total Order Value
+  #   model: stg_orders
+  #   calculation_method: sum
+  #   expression: order_total
+  #   timestamp: order_date
+  #   time_grains: [day, month, year]
+  #   dimensions:
+  #     - order_status
+  #     - order_prioriity
+
+  # - name: order_count
+  #   label: Number of Orders
+  #   model: stg_orders
+  #   calculation_method: count
+  #   expression: order_id
+  #   timestamp: order_date
+  #   time_grains: [day, month, year]
+  #   dimensions:
+  #     - order_status
+  #     - order_prioriity
+
+  # - name: confirmed_order_value
+  #   label: Confirmed Orders Value
+  #   model: stg_orders
+  #   calculation_method: sum
+  #   expression: order_total
+  #   timestamp: order_date
+  #   time_grains: [day, month, year]
+  #   filters:
+  #     - field: order_status
+  #       operator: "="
+  #       value: confirmed
+  #   dimensions:
+  #     - order_prioriity
