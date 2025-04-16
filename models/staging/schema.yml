@@ -1,0 +1,88 @@
+version: 2
+
+models:
+  - name: stg_countries
+    description: "Widok stagingowy krajów, w których znajdują się siedziby klientów"
+    columns:
+      - name: country_id
+        description: "Identyfikator kraju, w którym znajduje się siedziba klienta"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: country_id
+      - name: country_name
+        description: "Nazwa kraju, w którym znajduje się siedziba klienta"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    description: "Widok stagingowy klientów"
+    columns:
+      - name: customer_id
+        description: "Identyfikator klienta"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Nazwa klienta"
+        tests:
+          - not_null
+      - name: customer_address
+        description: "Adres klienta"
+        tests:
+          - not_null
+      - name: phone_number
+        description: "Nr telefonu klienta"
+        tests:
+          - not_null
+      - name: country_id
+        description: "Identyfikator kraju siedziby klienta"
+        tests:
+          - not_null
+
+  - name: stg_customers_with_countries
+    description: "Widok stagingowy klientów z nazwami krajów, w których ma siedziby"
+    columns:
+      - name: customer_id
+        description: "Identyfikator klienta"
+      - name: customer_name
+        description: "Nazwa klienta"
+      - name: customer_country
+        description: "Nazwa kraju, w który klient ma siedzibę"
+
+  - name: stg_orders
+    description: "Tabela stagingowa z zamówieniami"
+    columns:
+      - name: order_id
+        description: "Unikalny identyfikator zamówienia"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Identyfikator klienta"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: order_date
+        description: "Data zamówienia"
+        tests:
+          - not_null
+      - name: order_status
+        description: "Status zamówienia"
+        tests:
+          - not_null
+      - name: order_prioriity
+        description: "Priorytet zamówienia"
+        tests:
+          - not_null
+      - name: order_total
+        description: "Wartość zamówienia"
+        tests:
+          - not_null
+          
+    
