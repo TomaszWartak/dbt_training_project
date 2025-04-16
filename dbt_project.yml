@@ -35,9 +35,12 @@ clean-targets: # directories to be removed by `dbt clean`
 
 models:
   dbt_training_project:
-    # Applies to all files under models/example/
-    example:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
       +materialized: table
+      +schema: marts
 seeds:
   dbt_training_project:
     +quote_columns: true
