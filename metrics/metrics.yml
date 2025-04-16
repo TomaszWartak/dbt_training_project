@@ -2,17 +2,38 @@ version: 2
 type: metrics
 
 metrics:
-  - name: total_revenue
-    label: Total Revenue
+  - name: total_order_value
+    label: Total Order Value
     model: stg_orders
     calculation_method: sum
     expression: order_total
     timestamp: order_date
     time_grains: [day, month, year]
     dimensions:
-      - customer_id
-    #  - status
-    #filters:
-    #  - field: status
-    #    operator: "="
-    #    value: confirmed
+      - order_status
+      - order_prioriity
+
+  - name: order_count
+    label: Number of Orders
+    model: stg_orders
+    calculation_method: count
+    expression: order_id
+    timestamp: order_date
+    time_grains: [day, month, year]
+    dimensions:
+      - order_status
+      - order_prioriity
+
+  - name: confirmed_order_value
+    label: Confirmed Orders Value
+    model: stg_orders
+    calculation_method: sum
+    expression: order_total
+    timestamp: order_date
+    time_grains: [day, month, year]
+    filters:
+      - field: order_status
+        operator: "="
+        value: confirmed
+    dimensions:
+      - order_prioriity
